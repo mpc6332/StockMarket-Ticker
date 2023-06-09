@@ -1,0 +1,46 @@
+﻿<Window x:Name="wdw_Main" x:Class="TickerTape_Stocks.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TickerTape_Stocks"
+        mc:Ignorable="d"
+        Title="Ticker Tape Stocks" Height="450" Width="800" FontSize="14" ResizeMode="NoResize" ContentRendered="wdw_Main_ContentRendered">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF7B4D3D" Offset="0.068"/>
+            <GradientStop Color="White" Offset="1"/>
+            <GradientStop Color="#FFA2C0BC" Offset="0.442"/>
+            <GradientStop Color="#FFDBE7E5" Offset="0.77"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid x:Name="sld_movementTick">
+        <TextBox x:Name="txt_tickerTape" HorizontalAlignment="Left" Margin="463,124,0,0" VerticalAlignment="Top" Width="261" IsReadOnly="True" IsTabStop="False"/>
+        <Button x:Name="btn_startStop" Content="Start" HorizontalAlignment="Left" Margin="463,182,0,0" VerticalAlignment="Top" Width="109" IsEnabled="False" Click="btn_startStop_Click" TabIndex="3" GotFocus="btn_startStop_GotFocus"/>
+        <Button x:Name="btn_clear" Content="Clear" HorizontalAlignment="Left" Margin="615,182,0,0" VerticalAlignment="Top" Width="109" Click="btn_clear_Click" TabIndex="6"/>
+        <Slider x:Name="sld_movementTick1" HorizontalAlignment="Left" Margin="463,310,0,0" VerticalAlignment="Top" Width="261" Ticks="200 300 400 500 600 700 800 900 1000" IsSnapToTickEnabled="True" AutoToolTipPlacement="BottomRight" Maximum="1000" Minimum="200" TickFrequency="100" TickPlacement="BottomRight" Height="32" ValueChanged="sld_movementTick1_ValueChanged" Value="600" TabIndex="2"/>
+        <ListBox x:Name="lst_currentList" VirtualizingPanel.IsVirtualizing="False" Margin="26,159,0,0" Width="131" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="121" GotFocus="lst_currentList_GotFocus" SelectionChanged="lst_currentList_SelectionChanged" TabIndex="4" IsTabStop="True"/>
+        <ListBox x:Name="lst_allStocks" VirtualizingPanel.IsVirtualizing="False" Height="121" Margin="219,159,0,0" Width="131" HorizontalAlignment="Left" VerticalAlignment="Top" GotFocus="lst_allStocks_GotFocus" SelectionChanged="lst_allStocks_SelectionChanged" TabIndex="0" IsTabStop="True">
+            <ListBoxItem Content="AAPL $157.40"/>
+            <ListBoxItem Content="MSFT $272.23"/>
+            <ListBoxItem Content="AMZN $97.71"/>
+            <ListBoxItem Content="NVDA $259.00"/>
+            <ListBoxItem Content="META $197.81"/>
+            <ListBoxItem Content="TSLA $183.25"/>
+            <ListBoxItem Content="COST $489.29"/>
+            <ListBoxItem Content="ADBE $362.88"/>
+            <ListBoxItem Content="NFLX $305.13"/>
+            <ListBoxItem Content="INTC $29.16"/>
+        </ListBox>
+        <Label x:Name="lbl_Stock" Content="STOCKS CHOSEN" HorizontalAlignment="Left" Margin="33,117,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_stocksLIst" Content="STOCKS LIST" HorizontalAlignment="Left" Margin="229,116,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn_add" Content="Add Stock" HorizontalAlignment="Left" Margin="234,310,0,0" VerticalAlignment="Top" Width="102" Click="btn_add_Click" IsEnabled="False" TabIndex="1"/>
+        <Button x:Name="btn_remove" Content="Remove stock" HorizontalAlignment="Left" Margin="35,310,0,0" VerticalAlignment="Top" Width="102" IsEnabled="False" Click="btn_remove_Click" TabIndex="5"/>
+        <Label x:Name="sld_tick_names" Content="200       300      400       500       600       700      800       900      1000" HorizontalAlignment="Left" Margin="456,330,0,0" VerticalAlignment="Top" FontSize="9" Width="297"/>
+        <Image x:Name="img_nasdaqLogo" HorizontalAlignment="Left" Height="63" Margin="311,28,0,0" VerticalAlignment="Top" Width="165" Source="/1200px-NASDAQ_Logo.svg.png"/>
+        <Label x:Name="lbl_movementTick" Content="Movement Tick (in milliseconds)" HorizontalAlignment="Left" Margin="488,276,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_directions" Content="NOTICE: You'll need to select something from one of the&#xA;lists to activate the add/remove buttons respectively" HorizontalAlignment="Left" Margin="26,350,0,0" VerticalAlignment="Top" Foreground="#FFDA1933" Width="357"/>
+        <Label x:Name="lbl_warning" Content="" HorizontalAlignment="Left" Margin="459,149,0,0" VerticalAlignment="Top" Width="277" FontSize="13.5" Foreground="#FFFFD438"/>
+
+    </Grid>
+</Window>
